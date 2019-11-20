@@ -81,7 +81,7 @@ class FrontendController extends Controller
     public function getCategory(Request $request, $id){
     	$data['cate_infor'] = Category::find($id);
 
-    	$data['item_list'] = Product::where('cate_id', $id)->orderBy('id', 'desc')->paginate(2);
+    	$data['item_list'] = Product::where('cate_id', $id)->orderBy('id', 'desc')->paginate(4);
 
         $data['total_cart'] = 0;
 

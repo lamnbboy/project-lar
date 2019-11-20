@@ -45,7 +45,7 @@ class CategoryController extends Controller
     	$category = new Category;
     	$arr['name'] = $request->name;
     	if($request->parent_id != 0){
-    		$$arr['parent_id'] = $request->parent_id;
+    		$arr['parent_id'] = $request->parent_id;
     	}
     	$arr['order'] = $request->order;
     	$arr['description'] = $request->description;

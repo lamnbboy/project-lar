@@ -70,7 +70,7 @@ class ProductController extends Controller
     	if($request->hasFile('img')){
     		$file_img = $request->img->getClientOriginalName();
     		$arr['image'] = $file_img;
-    		$request->img->storeAs('product-img', $file_img);
+    		$request->img->storeAs('product-img', $file_img , 'public');
     	}
 
     	$product::where('id', $id)->update($arr);
