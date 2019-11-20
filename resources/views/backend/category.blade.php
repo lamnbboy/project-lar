@@ -77,6 +77,12 @@
 			                </tbody>
 			            </table>
 					</div>
+					<div class="row text-center">
+						<div class="col-md-12">
+							{{$cate_list->links()}}
+						</div>
+						
+					</div>
 					<div class="clearfix"></div>
 				</div>
 			</div>

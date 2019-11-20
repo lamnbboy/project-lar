@@ -15,8 +15,8 @@ class ProductController extends Controller
 {
     //
     public function getProduct(){
-    	// $data['product_list'] = DB::table('products')->join('categories', 'products.cate_id', '=', 'categories.id')->orderBy('products.id', 'desc')->get();
-    	$data['product_list'] = DB::select('select products.*, categories.name as cate_name from products, categories where products.cate_id = categories.id order by products.id desc');
+    	$data['product_list'] = DB::table('products')->join('categories', 'products.cate_id', '=', 'categories.id')->select('products.*', 'categories.name as cate_name')->orderBy('products.id', 'desc')->paginate(8);
+    	
     	return view('backend.product', $data);
     }
 

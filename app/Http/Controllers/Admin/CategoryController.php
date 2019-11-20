@@ -12,7 +12,7 @@ class CategoryController extends Controller
 {
     //
     public function getCate(){
-    	$data['cate_list'] = Category::all();
+    	$data['cate_list'] = Category::paginate(8);
 
     	$data['cate_parent_list'] = Category::whereNull('parent_id')->get();
 
