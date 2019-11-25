@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Order;
 use App\Models\DetailOrder;
+use App\Models\Promotion;
 use Mail;
 use Session;
 use Illuminate\Support\Facades\Storage;
@@ -484,7 +485,7 @@ class FrontendController extends Controller
 
             $data['product_in_cart'] = array();
             $data['total_cart'] = 0;
-            $data['total_money'] = 0;
+            $data['total_money'] = $request->total_order;
 
             $cart = $request->session()->get('cart');
 
@@ -500,7 +501,6 @@ class FrontendController extends Controller
 
                 $data['product_in_cart'][] = $item;
                 $data['total_cart'] += $obj->quantity;
-                $data['total_money'] += $item->money;
             }
 
             // $email = $request->email_cus;
@@ -551,5 +551,11 @@ class FrontendController extends Controller
         $tb->message = 'Have not any product to checkout => Failed';
 
         return response()->json($tb);
+    }
+
+    public function getPromotion(Request $request){
+        $data['discount'] = Promotion::where('code', $request->code)->orderBy('id', 'desc')->take(1)->get();
+
+        return response()->json($data, 200);
     }
 }

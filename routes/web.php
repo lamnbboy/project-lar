@@ -72,4 +72,6 @@ Route::group(['namespace'=>'Admin'], function(){
 //API:
 Route::get('/api/get-cart-checkout', 'FrontendController@getApiCart');
 
+Route::get('/api/get-promotion/{code}', 'FrontendController@getPromotion');
+
 Route::post('/api/post-checkout', 'FrontendController@postApiCheckOut');

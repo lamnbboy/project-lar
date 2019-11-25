@@ -19,6 +19,8 @@ window.axios = require('axios');
 
 Vue.component('checkout', require('./components/CheckoutComponent.vue').default);
 
+Vue.component('promotion', require('./components/PromotionComponent.vue').default);
+
 const app = new Vue({
     el: '#app'
 });
