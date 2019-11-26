@@ -11,8 +11,15 @@ use App\Http\Requests\EditCateRequest;
 class CategoryController extends Controller
 {
     //
-    public function getCate(){
-    	$data['cate_list'] = Category::paginate(8);
+    public function getCate(Request $request){
+        $strWhere = '';
+        if(isset($request->search_cate)){
+            $strWhere .= $request->search_cate;
+        }
+
+    	$data['cate_list'] = Category::where('name', 'like', '%'. $strWhere .'%')->paginate(4);
+
+        $data['cate_list']->appends($request->all());
 
     	$data['cate_parent_list'] = Category::whereNull('parent_id')->get();
 

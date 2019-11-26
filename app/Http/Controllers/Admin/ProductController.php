@@ -14,8 +14,15 @@ use DB;
 class ProductController extends Controller
 {
     //
-    public function getProduct(){
-    	$data['product_list'] = DB::table('products')->join('categories', 'products.cate_id', '=', 'categories.id')->select('products.*', 'categories.name as cate_name')->orderBy('products.id', 'desc')->paginate(8);
+    public function getProduct(Request $request){
+        $strWhere = '';
+        if(isset($request->search_tensp)){
+            $strWhere .= $request->search_tensp;
+        }
+
+    	$data['product_list'] = DB::table('products')->join('categories', 'products.cate_id', '=', 'categories.id')->select('products.*', 'categories.name as cate_name')->where('products.name', 'like', '%'. $strWhere .'%')->orderBy('products.id', 'desc')->paginate(4);
+
+        $data['product_list']->appends($request->all());
     	
     	return view('backend.product', $data);
     }

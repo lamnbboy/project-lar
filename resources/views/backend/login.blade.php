@@ -38,7 +38,8 @@
 									<input name="remember" type="checkbox" value="Remember Me">Remember Me
 								</label>
 							</div>
-							<input type="submit" name="submit" value="Đăng nhập" class="btn btn-primary">
+							<input type="submit" name="submit" value="Đăng nhập" class="btn btn-primary" style="margin-left: 120px;">
+							<a href="{{asset('/')}}"><button type="button" class="btn btn-danger">Quay lại trang chủ</button></a>
 						</fieldset>
 						{{csrf_field()}}
 					</form>

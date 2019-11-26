@@ -49,6 +49,19 @@
 		<div class="col-xs-12 col-md-7 col-lg-7">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Danh sách danh mục</div>
+
+				<form action="" method="GET" class="sidebar-form" style="margin-top: 20px;">
+					<div class="input-group">
+						<input type="text" name="search_cate" class="form-control" style="width: 480px; margin-left: 15px;" placeholder="Tìm kiếm loại sản phẩm">
+						<span style="margin-left: 20px;">
+					        <button type="submit" id="search-btn" class="btn btn-success">
+					        	Tìm kiếm
+					        </button>
+					        <a href="{{asset('/admin/category')}}"><button type="button" class="btn btn-default">Làm mới</button></a>
+						</span>
+					</div>
+				</form>
+
 				<div class="panel-body">
 					<div class="bootstrap-table">
 						<table class="table table-bordered">

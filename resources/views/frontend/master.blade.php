@@ -132,6 +132,7 @@
 					<nav id="menu">
 
 						<ul class="list-unstyled">
+							<li style="background: #007bff;"><a href="{{asset('/admin/home')}}" style="color: white; font-size: 18px;">Quản trị</a></li>
 							@foreach($cate_parent_list as $cate_parent)
 							<li>{{$cate_parent->name}}
 								<ul class="sub-menu">

@@ -17,7 +17,20 @@
 					<div class="bootstrap-table">
 						<div class="table-responsive">
 							<a href="{{asset('admin/product/add')}}" class="btn btn-primary">Thêm sản phẩm</a>
-							<table class="table table-bordered" style="margin-top:20px;">				
+
+							<form action="" method="GET" class="sidebar-form" style="margin-top: 20px;">
+								<div class="input-group">
+									<input type="text" name="search_tensp" class="form-control" style="width: 550px;" placeholder="Tìm kiếm tên sản phẩm">
+									<span style="margin-left: 20px;">
+								        <button type="submit" id="search-btn" class="btn btn-success">
+								        	Tìm kiếm
+								        </button>
+									</span>
+									<a href="{{asset('/admin/product')}}"><button type="button" class="btn btn-default">Làm mới</button></a>
+								</div>
+							</form>
+
+							<table class="table table-bordered" style="margin-top: 30px;">				
 								<thead>
 									<tr class="bg-primary">
 										<th>ID</th>
