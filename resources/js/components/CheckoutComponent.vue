@@ -107,14 +107,15 @@
 	            	document.getElementById('add').value = '';
 	            	document.getElementById('promotion').value = '';
 	            	
-	                var ok = Swal.fire(
+	                Swal.fire(
 			            response.data.message,
 			            'Continute shoping',
 			            'success'
-		        	);
-
-		        	if(ok)
-		        		location.reload();
+		        	).then((result) => {
+		        		if(result.value){
+		        			location.reload();
+		        		}
+		        	});
 	            })
 	            .catch(function (error) {
 	                console.log(error);

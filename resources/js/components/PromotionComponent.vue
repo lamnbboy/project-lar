@@ -1,8 +1,9 @@
 <template>
-	<div class="form-group">
-		<label for="promotion">Mã giảm giá</label>
-		<input required type="text" class="form-control col-sm-8" id="promotion" name="promotion" v-model="prom_code">
-		<button class="form-coltrol" v-on:click="receivePromotion">Nhận giảm giá</button>
+	<div class="input-group" style="margin-bottom: 20px;">
+		<input type="text" style="width: 350px;" id="promotion" name="promotion" v-model="prom_code" placeholder="Nhập mã giảm giá">
+		<span style="margin-left: 20px;">
+			<button class="btn btn-primary" v-on:click="receivePromotion" id="btn-discount">Nhận giảm giá</button>
+		</span>
 	</div>
 </template>
 
@@ -28,14 +29,18 @@ export default{
             		alert("Bạn sẽ được áp dụng mã giảm giá này");
             		document.getElementById('discount_conttent').innerHTML = this.discount_content;
 
+            		document.getElementById("btn-discount").disabled = true;
+
             		this.$emit('discountWasUpdated', response.data.discount[0].cash_discount)
 				}else{
 					alert("Sai mã giảm giá");
 					document.getElementById('discount_conttent').innerHTML = '';
 				}
             });
+
+
 		}
-	}
+	},
 }
 
 </script>
